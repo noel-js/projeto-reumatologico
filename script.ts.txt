@@ -1,0 +1,50 @@
+document.getElementById('cadastroForm')?.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const nome = (document.getElementById('nome') as HTMLInputElement).value;
+    const idade = (document.getElementById('idade') as HTMLInputElement).value;
+    const peso = (document.getElementById('peso') as HTMLInputElement).value;
+    const altura = (document.getElementById('altura') as HTMLInputElement).value;
+    const condicao = (document.getElementById('condicao') as HTMLSelectElement).value;
+
+    localStorage.setItem('nome', nome);
+    localStorage.setItem('idade', idade);
+    localStorage.setItem('peso', peso);
+    localStorage.setItem('altura', altura);
+    localStorage.setItem('condicao', condicao);
+
+    window.location.href = 'dashboard.html';
+});
+
+window.addEventListener('load', function () {
+    const nome = localStorage.getItem('nome');
+    const idade = localStorage.getItem('idade');
+    const peso = localStorage.getItem('peso');
+    const altura = localStorage.getItem('altura');
+    const condicao = localStorage.getItem('condicao');
+
+    if (nome) {
+        document.getElementById('userName')!.textContent = nome;
+        document.getElementById('userAge')!.textContent = idade!;
+        document.getElementById('userWeight')!.textContent = peso!;
+        document.getElementById('userHeight')!.textContent = altura!;
+        document.getElementById('userCondition')!.textContent = condicao!;
+    }
+
+    // Lógica para mostrar a próxima terapia baseada na condição de saúde
+    const therapyInfo = document.getElementById('therapyInfo')!;
+    switch (condicao) {
+        case 'artrite':
+            therapyInfo.textContent = 'Realize exercícios de alongamento para mãos e dedos.';
+            break;
+        case 'artrose':
+            therapyInfo.textContent = 'Pratique exercícios de fortalecimento muscular.';
+            break;
+        case 'osteoporose':
+            therapyInfo.textContent = 'Realize caminhadas diárias de 30 minutos.';
+            break;
+        default:
+            therapyInfo.textContent = 'Consulte seu fisioterapeuta para mais orientações.';
+            break;
+    }
+});

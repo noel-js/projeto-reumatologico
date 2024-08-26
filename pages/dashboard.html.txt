@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Fisio Reumatologia</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo, <span id="userName">Usuário</span></h1>
+    </header>
+    <main>
+        <section id="userInfo">
+            <h2>Suas Informações:</h2>
+            <p>Idade: <span id="userAge"></span></p>
+            <p>Peso: <span id="userWeight"></span> kg</p>
+            <p>Altura: <span id="userHeight"></span> cm</p>
+            <p>Condição de Saúde: <span id="userCondition"></span></p>
+        </section>
+
+        <section id="therapyGuide">
+            <h2>Próxima Terapia:</h2>
+            <p id="therapyInfo">Informação sobre a terapia...</p>
+        </section>
+    </main>
+    <script src="../script.ts"></script>
+</body>
+</html>
